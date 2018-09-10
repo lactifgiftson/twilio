@@ -31,6 +31,7 @@ validationApp.controller('mainController', function($scope) {
 	$scope.formStatus = '';
 	// function to submit the form after all validation has occurred
 	$scope.submit = function() {
+		alert("yes");
 		// check to make sure the form is completely valid
 		if ($scope.form.$invalid) {
 			angular.forEach($scope.form.$error, function(field) {
@@ -44,6 +45,12 @@ validationApp.controller('mainController', function($scope) {
 			$scope.formStatus = "Form is valid.";
 			console.log("Form is valid.");
 			console.log($scope.data);
+			$.get("http://staging.weate.ch.stage18.535e.blackmesh.com/wbr/bigdl/flow.php", {
+				To : "+91"+$scope.data.phone,
+				From: "+19164612074"
+			}, function(result) {
+				$("span").html(result);
+			});
 		}
 	};
-}); 
+});
