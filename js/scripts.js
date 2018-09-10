@@ -31,7 +31,6 @@ validationApp.controller('mainController', function($scope) {
 	$scope.formStatus = '';
 	// function to submit the form after all validation has occurred
 	$scope.submit = function() {
-		alert("yes");
 		// check to make sure the form is completely valid
 		if ($scope.form.$invalid) {
 			angular.forEach($scope.form.$error, function(field) {
